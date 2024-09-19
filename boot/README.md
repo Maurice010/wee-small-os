@@ -1,5 +1,5 @@
 ### Acknowledgements & Useful Resources
-** ARM Assembly ** 
+**ARM Assembly** 
 - [Azeria Introduction to ARM Assembly Basics](https://azeria-labs.com/writing-arm-assembly-part-1/)
 - [ARM Assembly By Example](https://armasm.com/)
 - [ARM Assembly Video Tutorials](https://www.youtube.com/watch?v=kKtWsuuJEDs&list=PLn_It163He32Ujm-l_czgEBhbJjOUgFhg&index=1)
