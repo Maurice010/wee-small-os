@@ -11,7 +11,9 @@ proc_loop:
     b proc_loop
 
 proc_main:
-    mov sp, 0x80000
+    ldr x1, =_start
+    mov sp, x1
+    
     ldr x0, =__bss_start
     ldr w1, =__bss_size
 clear_bss:
