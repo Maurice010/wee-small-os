@@ -18,7 +18,7 @@ unsigned int in32(unsigned long reg)
     return *(volatile unsigned int *) reg;
 }
 
-static int uart_init(void) {
+void uart_init(void) {
     /* Choose GPIO pins for UART connection */
     // our aim -> xxxx xxxx xxxx xxx0 1001 0xxx xxxx xxxx
     unsigned int reg;
@@ -33,9 +33,9 @@ static int uart_init(void) {
 
     /* TODO: Implement wait(cycles_num) function */
     out32(GPPUD, 0);
-    // wait(150);
+    busy_wait_cycles(150);
     out32(GPPUDCLK0, (3 << 14));
-    // wait(150);
+    busy_wait_cycles(150);
     out32(GPPUDCLK0, 0);
 
     /* Config UART transmission settings */
@@ -48,10 +48,16 @@ static int uart_init(void) {
     out32(AUX_MU_CNTL, 3); // Enable transmission
 }
 
-static int uart_write() {
+int uart_write(char *buffer, int size) {
+    int i = 0;
+    while (i < size) {
+        while (!(in32(AUX_MU_LSR) & 0x20));
+        out32(AUX_MU_IO, *buffer++);
+    }
 
+    return i;
 }
 
-static int uart_read() {
-
+unsigned int uart_read() {
+    return 0;
 }

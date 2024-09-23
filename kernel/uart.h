@@ -1,4 +1,8 @@
+#ifndef UART_H
+#define UART_H
+
 #include "gpio.h"
+#include "time.h"
 
 /* mini UART Registers */
 #define AUX_ENABLES     PERIPHERAL_BASE + 0x00215004
@@ -19,3 +23,8 @@
 
 /* Data length */
 #define LEN_8 3
+
+void uart_init(void);
+int uart_write(char *buffer, int size);
+
+#endif /* UART_H */
