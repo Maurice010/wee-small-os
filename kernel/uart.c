@@ -19,7 +19,7 @@ unsigned int in32(unsigned long reg)
 }
 
 void uart_init(void) {
-    /* Choose GPIO pins for UART connection */
+    /* Choose GPIO pins for UART connection (alternate function 5 for pins 14 & 15) */
     // our aim -> xxxx xxxx xxxx xxx0 1001 0xxx xxxx xxxx
     unsigned int reg;
     reg = in32(GPFSEL0);
@@ -27,8 +27,8 @@ void uart_init(void) {
     reg |= (18 << 12); // set bits 12-17 to 010010
 
     /*
-        Remove pull up/down states from pins
-        Actually I'm not sure if it's necessary, but at least it has some educational value
+        Put pins 14 & 15 in floating state (remove pull up/down)
+        Actually I'm not sure why it's necessary, but at least it has some educational value
      */
 
     /* TODO: Implement wait(cycles_num) function */
@@ -52,12 +52,23 @@ int uart_write(char *buffer, int size) {
     int i = 0;
     while (i < size) {
         while (!(in32(AUX_MU_LSR) & 0x20));
+        if (*buffer == '\n') {
+            out32(AUX_MU_IO, '\r');
+        }
         out32(AUX_MU_IO, *buffer++);
+        i++;
     }
 
     return i;
 }
 
-unsigned int uart_read() {
-    return 0;
+int uart_read(char *buffer, int size) {
+    int i = 0;
+    while (i < size) {
+        while (!(in32(AUX_MU_LSR) & 0x01));
+        *buffer++ = in32(AUX_MU_IO);
+        i++;
+    }
+
+    return i;
 }

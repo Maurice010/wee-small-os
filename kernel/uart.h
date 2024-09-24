@@ -26,5 +26,6 @@
 
 void uart_init(void);
 int uart_write(char *buffer, int size);
+int uart_read(char *buffer, int size);
 
 #endif /* UART_H */
