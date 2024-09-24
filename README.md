@@ -2,6 +2,9 @@
 Simple OS for Raspberry Pi from scratch
 
 ### Acknowledgements & Useful Resources
+**Raspberry Pi and Other Miscellaneous Documentation**
+- [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/processors.html)
+
 **Raspberry Pi OS Tutorials**
 - [rpi4-osdev](https://github.com/babbleberry/rpi4-osdev/blob/master/part1-bootstrapping/README.md)
 - [raspberry-pi-os](https://github.com/s-matyukevich/raspberry-pi-os/tree/master)
@@ -15,3 +18,4 @@ Simple OS for Raspberry Pi from scratch
 - [ARM Assembly Video Tutorials](https://www.youtube.com/watch?v=kKtWsuuJEDs&list=PLn_It163He32Ujm-l_czgEBhbJjOUgFhg&index=1)
 - [Calling Conventions on ARM](https://stackoverflow.com/questions/55518499/how-to-define-an-arm-assembly-function-that-can-be-used-in-c)
 - [A64 ISA Guide](https://developer.arm.com/documentation/102374/0102)
+- [How to Use Inline Assembly Language in C Code](https://gcc.gnu.org/onlinedocs/gcc/extensions-to-the-c-language-familyhow-to-use-inline-assembly-language-in-c-code.html)
