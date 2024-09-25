@@ -4,6 +4,7 @@ Simple OS for Raspberry Pi from scratch
 ### Acknowledgements & Useful Resources
 **Raspberry Pi and Other Miscellaneous Documentation**
 - [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/processors.html)
+- [The mailbox](https://bitbanged.com/posts/understanding-rpi/the-mailbox/)
 
 **Raspberry Pi OS Tutorials**
 - [rpi4-osdev](https://github.com/babbleberry/rpi4-osdev/blob/master/part1-bootstrapping/README.md)
