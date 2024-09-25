@@ -1,7 +1,7 @@
 #ifndef UART_H
 #define UART_H
 
-#include "gpio.h"
+#include "io.h"
 #include "time.h"
 
 /* mini UART Registers */

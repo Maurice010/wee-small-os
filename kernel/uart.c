@@ -7,17 +7,6 @@
 // struct uart_device {
 
 // };
-
-void out32(unsigned long reg, unsigned int data)
-{
-    *(volatile unsigned int *) reg = data;
-}
-
-unsigned int in32(unsigned long reg)
-{
-    return *(volatile unsigned int *) reg;
-}
-
 void uart_init(void) {
     /* Choose GPIO pins for UART connection (alternate function 5 for pins 14 & 15) */
     // our aim -> xxxx xxxx xxxx xxx0 1001 0xxx xxxx xxxx
