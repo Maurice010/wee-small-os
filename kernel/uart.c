@@ -37,7 +37,16 @@ void uart_init(void) {
     out32(AUX_MU_CNTL, 3); // Enable transmission
 }
 
-int uart_write(char *buffer, int size) {
+int uart_write32(unsigned int data)
+{
+    while (!(in32(AUX_MU_LSR) & 0x20));
+    out32(AUX_MU_IO, data);
+
+    return 1;
+}
+
+int uart_write(char *buffer, int size)
+{
     int i = 0;
     while (i < size) {
         while (!(in32(AUX_MU_LSR) & 0x20));
@@ -51,7 +60,8 @@ int uart_write(char *buffer, int size) {
     return i;
 }
 
-int uart_read(char *buffer, int size) {
+int uart_read(char *buffer, int size)
+{
     int i = 0;
     while (i < size) {
         while (!(in32(AUX_MU_LSR) & 0x01));

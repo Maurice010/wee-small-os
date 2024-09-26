@@ -25,6 +25,7 @@
 #define LEN_8 3
 
 void uart_init(void);
+int uart_write32(unsigned int data);
 int uart_write(char *buffer, int size);
 int uart_read(char *buffer, int size);
 
