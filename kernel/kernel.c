@@ -1,7 +1,10 @@
 #include "uart.h"
+#include "mailbox.h"
 
 int main(void) {
-    uart_write("Hello world", 11);
+    uart_init();
+    uart_write("Hello world\n", 11);
+
     while (1)
     {
 
