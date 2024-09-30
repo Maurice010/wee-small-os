@@ -15,12 +15,13 @@
 #define GPPUDCLK0 PERIPHERAL_BASE + 0x00200098
 #define GPPUDCLK1 PERIPHERAL_BASE + 0x0020009C
 
-/* Read/write to registers */
+/* Write to register */
 inline void out32(unsigned long reg, unsigned int data)
 {
     *(volatile unsigned int *) reg = data;
 }
 
+/* Read from register */
 inline unsigned int in32(unsigned long reg)
 {
     return *(volatile unsigned int *) reg;
