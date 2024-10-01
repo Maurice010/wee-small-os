@@ -22,4 +22,32 @@ inline void busy_wait_cycles(unsigned int cycles_num) {
     );
 }
 
+/* Generic Timer */
+/* TODO: Should we take into account how much time actions take here? */
+inline void busy_wait_time(unsigned int n, unsigned int factor)
+{
+    unsigned int frequency, cycles, to_wait, tmp_count, current_count;
+    /* Get frequency */
+    asm volatile(
+        "mrs %0, CNTFRQ_EL0 \n"
+        : "=r" (frequency)
+    );
+    cycles = ((frequency / factor) * n);
+    /* Get current count */
+    asm volatile(
+        "mrs %0, CNTPCT_EL0 \n"
+        : "=r" (tmp_count)
+    );
+
+    to_wait = tmp_count + cycles;
+    current_count = 0;
+    /* Check if n ms has passed */
+    while (current_count < to_wait) {
+        asm volatile(
+            "mrs %0, CNTPCT_EL0 \n"
+            : "=r" (current_count)
+        );
+    }
+}
+
 #endif /* TIME_H */
