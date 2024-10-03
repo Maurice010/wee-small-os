@@ -7,7 +7,7 @@ _start:
     and x0, x0, #0xFF
     cmp x0, #0
     bne proc_loop
-    b proc_main
+    b curr_EL
 proc_loop:
     b proc_loop
 
