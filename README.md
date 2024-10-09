@@ -18,10 +18,15 @@ Simple OS for Raspberry Pi from scratch
 64-bit virtual address format, of which the low-order 48 bits are used in current implementations
 
 63-48 -> Sign extended (either all 0s or all 1s in the upper 16 bits, depending on bit 47, else CPU will raise an exception)
+
 47-39 -> Level 4
+
 38-30 -> Level 3
+
 29-21 -> Level 2
+
 20-12 -> Level 1
+
 11-0 -> Memory page
 
 [Virtual Address bits](https://developer.arm.com/documentation/101811/0103/Translation-granule/The-starting-level-of-address-translation)
@@ -116,6 +121,7 @@ E (Early Write Acknowledgment): Allows for early acknowledgment of writes, meani
 **Permissions**
 
 In a [direct permission scheme](https://developer.arm.com/documentation/102376/0200/Permissions?lang=en), access rights are assigned directly to the entities (e.g., processes, users, or threads).
+
 In an [indirect permission scheme](https://developer.arm.com/documentation/102376/0200/Permissions?lang=en), access rights are not assigned directly to the entities; instead, permissions are granted through an intermediary, such as roles, groups, or policy configurations.
 
 [Access flag](https://developer.arm.com/documentation/102376/0200/Access-Flag?lang=en)
