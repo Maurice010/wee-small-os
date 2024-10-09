@@ -3,9 +3,8 @@ Simple OS for Raspberry Pi from scratch
 
 ## Contents
 - [Features](#features)
-- [Features](#features)
 - [Notes](#notes)
-  - [About Memory](#About Memory)
+  - [About Memory](#about-memory)
 - [Acknowledgements & Useful Resources](#acknowledgements--useful-resources)
 
 ## Features
@@ -28,8 +27,11 @@ Simple OS for Raspberry Pi from scratch
 [Virtual Address bits](https://developer.arm.com/documentation/101811/0103/Translation-granule/The-starting-level-of-address-translation)
 
 Level 1: 4 KB pageframes (Page Table) (512 x 4 KB = 2 MB): Each page table entry points to a 4 KB page frame in physical memory
+
 Level 2: 2 MB blocks (Page Directory) (512 x 2 MB = 1 GB): Each page directory entry points to a page table
+
 Level 3: 1 GB blocks (Page Directory Pointer Table) (512 x 1 GB = 512 GB): Each PDPT entry points to a page directory
+
 Level 4: 512 GB blocks (Page Map Level 4) (512 x 512 GB = 256 TB): Each PML4 entry points to a PDPT
 
 With each additional level of paging, virtual addressing becomes slower.
